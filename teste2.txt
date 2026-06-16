@@ -1,0 +1,17 @@
+int a = 10;
+
+/* ERRO SEMANTICO 1: Variavel declarada em duplicado */
+float a = 3.14;
+
+/* ERRO SEMANTICO 2: Uso de variavel fantasma (nao declarada) */
+x = 20;
+
+/* ERRO SEMANTICO 3: Tipos incompativeis na atribuicao (int recebendo char) */
+int numero;
+char letra = "Z";
+numero = letra;
+
+int b = 12;
+
+/* ERRO SEMANTICO 4: Tipos incompativeis na expressao matematica */
+a = a + letra;

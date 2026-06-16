@@ -167,17 +167,24 @@ class AnalisadorLexico:
 
 def main():
     try:
-        with open("teste.txt", 'r', encoding='utf-8') as f:
+        with open("teste2.txt", 'r', encoding='utf-8') as f:
             conteudo = f.read()
+
         analisador = AnalisadorLexico(conteudo)
         tokens = analisador.gerar_tokens()
-        print(f"\n{'LINHA':<7}  {'COLUNA':<7}  {'TEXTO':<35}  {'CATEGORIA'}")
-        print("." * 90)
-        for t in tokens:
-            lexema_formatado = t.lexema.replace('\n', '\\n')
-            print(f"{t.linha:<7}  {t.coluna:<7}  {lexema_formatado:<35}  {t.tipo}")
+
+        # Alterado: Escreve a saída no arquivo tokens.txt
+        with open("tokens.txt", "w", encoding="utf-8") as f_saida:
+            f_saida.write(f"{'LINHA':<7}  {'COLUNA':<7}  {'TEXTO':<35}  {'CATEGORIA'}\n")
+            f_saida.write("." * 90 + "\n")
+            for t in tokens:
+                lexema_formatado = t.lexema.replace('\n', '\\n')
+                f_saida.write(f"{t.linha:<7}  {t.coluna:<7}  {lexema_formatado:<35}  {t.tipo}\n")
+
+        print("Analise concluida! O arquivo 'tokens.txt' foi gerado com sucesso para a proxima fase.")
+
     except FileNotFoundError:
-        print("O arquivo teste.txt nao foi encontrado.")
+        print("O arquivo teste1.txt nao foi encontrado.")
 
 
 if __name__ == "__main__":

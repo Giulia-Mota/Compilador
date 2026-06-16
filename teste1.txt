@@ -1,0 +1,15 @@
+/* Declaracoes validas e insercao na Tabela de Simbolos */
+int a = 10, b = 2;
+float pi = 3.14;
+char inicial = "G";
+
+/* Variaveis ja declaradas sendo usadas corretamente */
+a = a + b;
+
+/* Misturar int com float e permitido na nossa regra semantica */
+pi = pi + a;
+
+/* Variavel condicional avaliada corretamente */
+if (a > 5) {
+    b = 0;
+}
